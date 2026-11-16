@@ -552,3 +552,9 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hs.pk img{height:80%;max-width:84%}
   .pdp-hero .hero-film{top:auto;bottom:0;height:45%}
 }
+
+/* desktop: packshots sized to the screen itself, so the whole bottle always fits with air around it, on any window shape */
+@media (min-width:861px){
+  .pdp-hero .hs.pk{padding-top:clamp(40px,8svh,90px)}
+  .pdp-hero .hs.pk img{height:68svh;max-height:none;max-width:78%}
+}
