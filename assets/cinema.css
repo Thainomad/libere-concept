@@ -558,3 +558,11 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hs.pk{padding-top:clamp(40px,8svh,90px)}
   .pdp-hero .hs.pk img{height:68svh;max-height:none;max-width:78%}
 }
+
+/* desktop: lifestyle photos are tall portraits; show them whole, full height, edges feathered, instead of zooming them to fill a wide space */
+@media (min-width:861px){
+  .pdp-hero .hs:not(.pk) img{width:auto;height:100%;max-width:100%;object-fit:cover;object-position:50% 40%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+  .pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,#000 86%,transparent);mask-image:linear-gradient(180deg,#000 86%,transparent)}
+}
+@media (min-width:861px){.pdp-hero .hs:not(.pk) img{height:100vh;height:100svh}}
