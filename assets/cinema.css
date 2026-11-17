@@ -630,3 +630,9 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hs:not(.pk) img{height:var(--fh,56svh);max-height:none}
   .pdp-hero .hs.pk img{height:calc(var(--fh,56svh) * .82);max-height:none}
 }
+/* phones, a touch larger: studio shots to 92% of the frame; photos 110% tall, trimming only empty background top and bottom */
+@media (max-width:860px){
+  .pdp-hero .hs.pk img{height:calc(var(--fh,56svh) * .92)}
+  .pdp-hero .hs.pk{padding-top:0;place-items:center}
+  .pdp-hero .hs:not(.pk) img{height:calc(var(--fh,56svh) * 1.1)}
+}
