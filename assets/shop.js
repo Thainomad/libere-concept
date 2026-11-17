@@ -103,7 +103,7 @@
   <div class="buybar" id="buybar" aria-hidden="true">
     <img id="barImg" src="${CATALOG.lust.img}" alt="">
     <div><b id="barName">LUST</b><span id="barSub"></span></div>
-    <button class="btn solid" id="barBtn" data-add="lust"><span>Add to Bag</span></button>
+    <button class="btn solid" id="barBtn" data-add="lust"><span>Add to bag</span></button>
   </div>`);
 
   const bag = $('#bag'), scrim = $('#bagScrim'), items = $('#bagItems');
@@ -229,7 +229,7 @@
     $('#barImg').src = p.img; $('#barName').textContent = p.short;
     const btn = $('#barBtn'); btn.removeAttribute('data-add'); btn.removeAttribute('data-notify');
     if(p.status === 'available'){
-      btn.dataset.add = k; btn.querySelector('span').textContent = 'Add to Bag';
+      btn.dataset.add = k; btn.querySelector('span').textContent = 'Add to bag';
       $('#barSub').textContent = `${money(p.price)} AUD`;
     } else {
       btn.dataset.notify = k; btn.querySelector('span').textContent = p.status === 'soon' ? 'Join the list' : 'Notify me';

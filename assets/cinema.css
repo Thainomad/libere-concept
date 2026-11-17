@@ -642,3 +642,25 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hs:not(.pk) img{height:calc(var(--fh,56svh) * 1.2)}
 }
 @media (max-width:860px){.pdp-hero .hs.pk img{translate:0 -6%}}
+
+
+/* =====================================================================
+   FINAL AUDIT
+   ===================================================================== */
+/* email forms (Private List + Notify / Join pop-ups): calm sentence case, a real button, never overflows */
+.cine form.join{display:flex;align-items:center;gap:6px;max-width:520px;border:1px solid rgba(243,236,227,.35);border-radius:var(--r);padding:4px 4px 4px 22px}
+.cine form.join input{flex:1;min-width:0;background:none;border:0;color:var(--cream);font-family:var(--sans);font-size:17px;font-style:normal;padding:12px 0;outline:none}
+.cine form.join input::placeholder{color:var(--soft);font-style:italic}
+.cine form.join button{flex:none;min-height:46px;padding:0 20px;border-radius:var(--r);background:var(--cream);color:var(--ink);border:0;
+  font-family:var(--sans);font-weight:500;font-size:15px;letter-spacing:.02em;text-transform:none;cursor:pointer;white-space:nowrap}
+.cine .notify .join{margin-top:22px}
+/* the promise line under the Private List: a clean list, no stray bullets */
+.promise span::before{content:none}
+.promise{gap:8px 22px}
+@media (max-width:860px){.promise{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;text-align:center;font-size:14px}}
+/* scent notes: a quiet list with hairlines, not boxes */
+.moments div{background:none;border-radius:0;padding:24px 0 0;border-top:1px solid rgba(243,236,227,.14)}
+/* footer on phones: two calm columns, brand across the top */
+@media (max-width:860px){.cine footer{grid-template-columns:1fr 1fr;gap:30px 20px}.cine footer .brand,.cine footer .legal{grid-column:1/-1}}
+/* header over page content: solid, so text never ghosts through it */
+.cine .nav.scrolled{background:rgba(6,5,4,.985);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
