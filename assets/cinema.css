@@ -664,3 +664,11 @@ body.lb-open{overflow:hidden}
 @media (max-width:860px){.cine footer{grid-template-columns:1fr 1fr;gap:30px 20px}.cine footer .brand,.cine footer .legal{grid-column:1/-1}}
 /* header over page content: solid, so text never ghosts through it */
 .cine .nav.scrolled{background:rgba(6,5,4,.985);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+
+/* phones: studio shots are placed by where the bottle actually sits in the image (--sc, measured),
+   so the bottle itself is centred in the visible frame (45% down, above the words), on every phone */
+@media (max-width:860px){
+  .pdp-hero .hs.pk{display:block}
+  .pdp-hero .hs.pk img{position:absolute;left:50%;translate:-50% 0;
+    top:calc(var(--fh,56svh) * .45 - var(--fh,56svh) * .92 * var(--zoom,1) * var(--sc,.5))}
+}
