@@ -26,7 +26,7 @@
     setTimeout(() => {
       if(cur !== 0 || hg.scrollLeft > 2) return;
       hg.style.scrollSnapType = 'none';
-      hg.scrollTo({left: Math.round(hg.clientWidth * .16), behavior:'smooth'});
+      hg.scrollTo({left: Math.round(hg.clientWidth * .1), behavior:'smooth'});
       setTimeout(() => { hg.scrollTo({left:0, behavior:'smooth'}); setTimeout(() => { hg.style.scrollSnapType = ''; }, 600); }, 560);
     }, 1600);
   }
