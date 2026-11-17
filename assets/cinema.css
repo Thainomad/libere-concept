@@ -636,3 +636,9 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hs.pk{padding-top:0;place-items:center}
   .pdp-hero .hs:not(.pk) img{height:calc(var(--fh,56svh) * 1.1)}
 }
+/* phones: studio shots zoom past their empty black padding (it blends into the page), so the bottle itself fills the frame */
+@media (max-width:860px){
+  .pdp-hero .hs.pk img{height:calc(var(--fh,56svh) * .92 * var(--zoom,1));max-width:none;width:auto}
+  .pdp-hero .hs:not(.pk) img{height:calc(var(--fh,56svh) * 1.2)}
+}
+@media (max-width:860px){.pdp-hero .hs.pk img{translate:0 -6%}}
