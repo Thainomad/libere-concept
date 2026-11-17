@@ -7,6 +7,10 @@
   const dots = [...document.querySelectorAll('.hg-dots i')], count = $('#hgCount');
   let cur = 0;
 
+  /* the frame's real height, measured, so every image is sized to fit it exactly (CSS % heights don't resolve in here) */
+  const fit = () => hg.style.setProperty('--fh', hg.clientHeight + 'px');
+  fit(); if('ResizeObserver' in window) new ResizeObserver(fit).observe(hg); else addEventListener('resize', fit);
+
   /* ---------- hero gallery ---------- */
   const mark = i => { cur = i; dots.forEach((d, j) => d.classList.toggle('on', j === i)); slides.forEach((s, j) => s.classList.toggle('cur', j === i)); if(count) count.textContent = `${i + 1} / ${n}`; };
   const idx = el => Math.round(el.scrollLeft / Math.max(1, el.clientWidth));

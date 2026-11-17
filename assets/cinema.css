@@ -616,3 +616,17 @@ body.lb-open{overflow:hidden}
   .pdp-hero .huge{font-size:16vw}
   .pdp-hero .line{margin-top:10px}
 }
+
+/* phones: lifestyle photos are shown WHOLE (the frame is wider than the portrait photos), centred, sides feathered:
+   nothing can ever be cropped off, on any phone */
+@media (max-width:860px){
+  .pdp-hero .hs:not(.pk) img{width:auto;height:100%;max-width:100%;object-fit:cover;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+  .pdp-hero .hs:not(.pk)::after{display:none}
+  .pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 5%,#000 92%,transparent);mask-image:linear-gradient(180deg,transparent 0,#000 5%,#000 92%,transparent)}
+}
+/* phones: every image sized from the measured frame height (--fh, set by gallery.js) */
+@media (max-width:860px){
+  .pdp-hero .hs:not(.pk) img{height:var(--fh,56svh);max-height:none}
+  .pdp-hero .hs.pk img{height:calc(var(--fh,56svh) * .82);max-height:none}
+}
