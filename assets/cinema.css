@@ -566,3 +566,31 @@ body.lb-open{overflow:hidden}
   .pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,#000 86%,transparent);mask-image:linear-gradient(180deg,#000 86%,transparent)}
 }
 @media (min-width:861px){.pdp-hero .hs:not(.pk) img{height:100vh;height:100svh}}
+
+
+/* =====================================================================
+   PRODUCT GALLERY v2: one consistent frame, curated order, studio shots that glow
+   ===================================================================== */
+.pdp-hero[data-level="lust"]{--glow:rgba(217,168,140,.24)}
+.pdp-hero[data-level="lux"]{--glow:rgba(207,217,223,.18)}
+.pdp-hero[data-level="lit"]{--glow:rgba(224,170,98,.22)}
+.pdp-hero .hs{isolation:isolate}
+.pdp-hero .hs.pk::before{content:"";position:absolute;left:6%;right:6%;top:8%;bottom:8%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,var(--glow,rgba(243,236,227,.15)),transparent)}
+/* each image settles in as it arrives */
+.pdp-hero .hs img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1);transform:scale(1.045)}
+.pdp-hero .hs.cur img{transform:none}
+@media (prefers-reduced-motion:reduce){.pdp-hero .hs img{transition:none;transform:none}}
+
+@media (max-width:860px){
+  /* the frame starts below the header and ends where the words begin: nothing ever covers a photo */
+  .panel.pdp-hero{padding-top:116px}
+  .pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,#000 84%,transparent);mask-image:linear-gradient(180deg,#000 84%,transparent)}
+  .pdp-hero .hs img{object-position:var(--fp,50% 45%)}
+  .pdp-hero .hs.pk{padding-top:0;place-items:center}
+  .pdp-hero .hs.pk img{height:92%;max-width:90%}
+  .hg-dots{margin-bottom:16px}
+  .hg-dots i{flex-basis:26px;background:rgba(243,236,227,.22)}
+}
+@media (max-width:860px){.pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 84%,transparent)}}
+@media (max-width:860px){.pdp-hero .hg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 84%,transparent);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 84%,transparent)}}

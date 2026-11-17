@@ -8,7 +8,7 @@
   let cur = 0;
 
   /* ---------- hero gallery ---------- */
-  const mark = i => { cur = i; dots.forEach((d, j) => d.classList.toggle('on', j === i)); if(count) count.textContent = `${i + 1} / ${n}`; };
+  const mark = i => { cur = i; dots.forEach((d, j) => d.classList.toggle('on', j === i)); slides.forEach((s, j) => s.classList.toggle('cur', j === i)); if(count) count.textContent = `${i + 1} / ${n}`; };
   const idx = el => Math.round(el.scrollLeft / Math.max(1, el.clientWidth));
   hg.addEventListener('scroll', () => { const i = idx(hg); if(i !== cur) mark(i); }, {passive:true});
   const go = i => hg.scrollTo({left: ((i + n) % n) * hg.clientWidth, behavior:'smooth'});
@@ -20,6 +20,16 @@
     if(e.key === 'ArrowLeft'){ e.preventDefault(); go(cur - 1); }
   });
   slides.forEach((b, i) => b.addEventListener('click', () => open(i)));
+
+  /* phones: one gentle sideways nudge on arrival, so people know the photos swipe */
+  if(n > 1 && matchMedia('(max-width:860px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    setTimeout(() => {
+      if(cur !== 0 || hg.scrollLeft > 2) return;
+      hg.style.scrollSnapType = 'none';
+      hg.scrollTo({left: Math.round(hg.clientWidth * .16), behavior:'smooth'});
+      setTimeout(() => { hg.scrollTo({left:0, behavior:'smooth'}); setTimeout(() => { hg.style.scrollSnapType = ''; }, 600); }, 560);
+    }, 1600);
+  }
 
   /* ---------- full-screen viewer ---------- */
   const lb = $('#lb'), tr = $('#lbTrack'); if(!lb || !tr) return;
